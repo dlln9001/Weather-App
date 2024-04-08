@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+.containCities {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    overflow-y: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cityBox {
+    margin: 5px;
+    padding: 10px;
+    height: 40px;
+    min-width: 230px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #191970;
+    font-size: 80%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cityQuickInfo {
+    margin: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cityBox:hover {
+    background-color: #000080;
 }
 
-.App-link {
-  color: #61dafb;
+.cityAll {
+    margin: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.quickInfo {
+    background-color: #191970;
+    width: 600px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.makeFlex {
+    display: flex;
+}
+
+.defaultMargin {
+    margin: 20px;
+}
+
+.allForecasts {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 78%;
+}
+
+.forecastInfo {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #191970;
+    border-radius: 10px;
+    width: 120px;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.forecastInfo:hover {
+    background-color: #181320;
+}
+
+.selectedDayInfo {
+    background-color: #191970;
+    border-radius: 10px;
+    height: 82%;
+    width: 540px;
+    position: relative;
+}
+
+.forecastElements {
+    position: absolute;
+    bottom: 0%;
 }
