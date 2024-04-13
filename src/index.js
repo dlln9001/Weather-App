@@ -33,7 +33,7 @@ function Home() {
     let newCitiesHtml = weatherData.map((data, index) => {
       if (data && data.current) {
         return (
-          <div key={index} className='cityBox' onClick={() => { setSelectedCityData(data) }}>
+          <div key={index} className='cityBox' onClick={() => {setSelectedCityData(data);  setSelectedForecast(data.forecast.forecastday[0])}}>
             <h2 className='cityQuickInfo'>{data.location.name}</h2>
             <h2 className='cityQuickInfo'>{data.current.temp_f}°</h2>
           </div>
@@ -47,7 +47,6 @@ function Home() {
 
   return (
     <>
-      <h1> Test </h1>
       <CityPreview weatherData={weatherData} citiesHtml={citiesHtml} />
       <div className='makeFlex defaultMargin'>
         {selectedCityData ? <CityInformation cityData={selectedCityData} /> : 'Select a city'}
@@ -57,6 +56,8 @@ function Home() {
     </>
   )
 }
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<Home />)
 

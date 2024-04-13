@@ -1,15 +1,15 @@
 
 function ForecastDayInfo(props) {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    console.log(props.cityData)
+    console.log(props.cityData, 'SelectedForecast:, ', props.selectedForecast)
     // get HTML for the forecast of the days 
     let forecasts
     if (props.cityData.forecast){
         forecasts = props.cityData.forecast.forecastday.map((oneForecast, index) => {
         let dayDate = new Date(oneForecast.date + "T12:00:00Z")
         return (
-            <div className="forecastInfo" key={index} onClick={() => props.setSelectedForecast(index)}>
-                <p>{days[dayDate.getDay()]}</p>
+            <div className="forecastInfo" key={index} onClick={() => props.setSelectedForecast(props.cityData.forecast.forecastday[index])}>
+                {index === 0 ? <p>Today</p> : <p>{days[dayDate.getDay()]}</p>}
                 <img src={oneForecast.day.condition.icon} alt="" />
                 <br /> <br />
                 <h3>H: {oneForecast.day.maxtemp_f}°</h3>
@@ -19,8 +19,9 @@ function ForecastDayInfo(props) {
     })}
 
     // gets user selected forcast
-    let selectedDayInfo = props.cityData.forecast.forecastday[props.selectedForecast]
+    let selectedDayInfo = props.selectedForecast
     let selectedDayDate = new Date(selectedDayInfo.date + "T12:00:00Z")
+
     return (
         <>
             <div>
@@ -41,6 +42,7 @@ function ForecastDayInfo(props) {
                             <h2>L: {selectedDayInfo.day.mintemp_f}°</h2>
                         </div>
                     </div>
+                    <h3 style={{marginLeft: "20px", marginTop: "0px"}}>{selectedDayInfo.day.condition.text}</h3>
                     <div className='makeFlex forecastElements'>
                         <div className='defaultMargin'>
                             <p>Chance of Rain</p>
